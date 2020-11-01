@@ -10,7 +10,9 @@ import logo from '../images/logo.svg';
 import Movie from "./movies/Movies";
 import Actors from "./actors/Actors";
 import FormMovie from "./movies/Form";
+import ViewMovie from "./movies/ViewMovie";
 import Home from "./Home";
+import Editactor from "./actors/Editactor";
 
 import { Layout, Menu} from 'antd';
 import {
@@ -48,80 +50,70 @@ render(){
       const { collapsed } = this.state;
   return (
     <div className="App">
-    <Layout  >
-        <Header className="site-layout-background" style={{ padding:0  }}>
-
-                
-           
-                    <a id="logo" href="/" style={{ display:"flex" ,width:"170px" }}>
-                        <Image alt="logo"  src={logo}></Image>
-                        <div style={{  fontSize:"25px", color:"whitesmoke"}}> Peliculas </div>
-                    </a>
-                  
-                
-            
-              
-              
-                
-            
-          </Header>
-          <Layout style={{ minHeight: '100vh' }}>
-              <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+      <Layout>
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          <a id="logo" href="/" style={{ display: "flex", width: "170px" }}>
+            <Image alt="logo" src={logo}></Image>
+            <div style={{ fontSize: "25px", color: "whitesmoke" }}>
+              {" "}
+              Peliculas{" "}
+            </div>
+          </a>
+        </Header>
+        <Layout style={{ minHeight: "100vh" }}>
+          <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
             <BrowserRouter>
-
-            
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="0">
-
-              Menu
-                
-            </Menu.Item>
-            <Menu.Item key="1" icon={<HomeOutlined />}>
-
-              <a  href="/" >Incio</a>
-                
-            </Menu.Item>
-            <Menu.Item key="2" icon={<PlayCircleOutlined />}   >
-            
-            <a href="/movies" >Peliculas</a>
-            
-                        
-             
-                
-            </Menu.Item>
-            <Menu.Item key="3" icon={<UserOutlined />}>
-                <a  href="/actors" >Actores</a>
-            
-            </Menu.Item>
-            {/* <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+              <div className="logo" />
+              <Menu theme="dark"  mode="inline">
+                <Menu.Item key="0">Menu</Menu.Item>
+                <Menu.Item key="1" icon={<HomeOutlined />}>
+                  <a href="/">Incio</a>
+                </Menu.Item>
+                <Menu.Item key="2" icon={<PlayCircleOutlined />}>
+                  <a href="/movies">Peliculas</a>
+                </Menu.Item>
+                <Menu.Item key="3" icon={<UserOutlined />}>
+                  <a href="/actors">Actores</a>
+                </Menu.Item>
+                {/* <SubMenu key="sub1" icon={<UserOutlined />} title="User">
               <Menu.Item key="3">Tom</Menu.Item>
               <Menu.Item key="4">Bill</Menu.Item>
               <Menu.Item key="5">Alex</Menu.Item>
             </SubMenu> */}
-            
-          </Menu>
-          </BrowserRouter>
-        </Sider>
+              </Menu>
+            </BrowserRouter>
+          </Sider>
 
           <Layout className="site-layout">
-          
-          <Content className="site-layout-background" style={{margin: '24px 16px',padding: 24, minHeight: 280,}}>
-             <BrowserRouter>
+            <Content
+              className="site-layout-background"
+              style={{ margin: "24px 16px", padding: 24, minHeight: 280 }}
+            >
+              <BrowserRouter>
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/movies" component={Movie} />
-                  <Route  exact path="/actors" component={Actors} />
-                  <Route exact path="/formmovie" component={FormMovie} />
+                  <Route exact path="/actors" component={Actors} />
+                  <Route
+                    exact
+                    path="/viewmovie/:viewid"
+                    component={ViewMovie}
+                  />
+                  <Route
+                    exact
+                    path="/formmovie/:peliid"
+                    component={FormMovie}
+                  />
+                  <Route
+                    exact
+                    path="/editactor/:editid"
+                    component={Editactor}
+                  />
                 </Switch>
               </BrowserRouter>
-          
-          </Content>
-        </Layout>
-
+            </Content>
           </Layout>
-        
-      
+        </Layout>
       </Layout>
     </div>
   );
