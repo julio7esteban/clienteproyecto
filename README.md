@@ -1,6 +1,24 @@
 
 ## Description
 
+Esta parte del cliente se elaboro con Reactjs y con Ant design y se tiene que realizar lo siguiente 
+para que corra correctamente:
+
+Primero se debe crear una carpeta en los cuales se clonaran los proyectos estas tienen como nombre clienteproyecto-master y servidorProyecto-master.
+
+El enlace de Git https://github.com/julio7esteban/clienteproyecto.git
+
+una vez clonado los repositorios se procede a instalar las dependencias con:
+
+"npm install"
+
+y se procede a ejecutar el proyecto con 
+
+"npm run start"
+
+este tiene por defecto el puerto 3000 .
+
+Si se requiere cambiar el puerto del servidor se lo realiza en el package.json en la etiqueta de proxy.
 
 
 
